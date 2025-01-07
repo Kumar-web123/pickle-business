@@ -49,3 +49,33 @@ git commit -m "Fix GitHub Actions permissions"
 git push
 
 
+name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  id-token: write
+  contents: read
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      - name: Setup Pages
+        uses: actions/configure-pages@v3
+
+      - name: Deploy to Pages
+        uses: actions/deploy-pages@v1
+
+git add .github/workflows/blank.yml
+git commit -m "Fix workflow file for GitHub Pages"
+git push origin main
+
+
+
