@@ -44,3 +44,8 @@ permissions:
   id-token: write
   contents: read
 
+  git add .github/workflows/blank.yml
+git commit -m "Fix GitHub Actions permissions"
+git push
+
+
